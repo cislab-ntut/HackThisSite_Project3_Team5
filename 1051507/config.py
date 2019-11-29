@@ -1,5 +1,5 @@
 
 info = {
-	'user' : 'Howieeeee',
-	'pwd' : 'Howie.taoyuan@gmail.com',
+	'user' : 'xxxx',
+	'pwd' : 'xxxx',
 }
