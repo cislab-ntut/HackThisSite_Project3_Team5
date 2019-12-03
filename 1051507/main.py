@@ -53,24 +53,22 @@ def shift_ascii(char_list):
 
 
 driver = webdriver.Firefox()
-
 driver.get('https://www.hackthissite.org/')
-
+time.sleep(2)
 
 search_input = driver.find_element_by_name("username")
 search_input.send_keys(info['user'])
-
+time.sleep(2)
 
 search_input = driver.find_element_by_name("password")
 search_input.send_keys(info['pwd'])
-
+time.sleep(2)
 
 start_search_btn = driver.find_element_by_name("btn_submit")
 start_search_btn.click()
-
+time.sleep(2)
 
 driver.get('https://www.hackthissite.org/missions/prog/12/')
-
 
 allHtml = driver.page_source
 
@@ -80,6 +78,8 @@ endPos = str(allHtml).find("<form")
 
 targetStr = allHtml[startPos+38:endPos-17]
 
+print('str ' + str(targetStr))
+
 numList, charList = numOrChar(targetStr)
 
 numberProduct = calPrime(numList)
@@ -88,15 +88,18 @@ shiftedString = shift_ascii(charList)
 
 ans = shiftedString + str(numberProduct)
 
+
+
 print(ans)
 
 ansInput = driver.find_element_by_name("solution")
-ansInput.send_keys(ans)
+ansInput.send_keys(str(ans))
 
 
 submitBtn = driver.find_element_by_name("submitbutton")
 submitBtn.click()
 
 
+#time.sleep(60)
 
-
+#driver.close()
